@@ -2,33 +2,36 @@ package com.endang.restEvoting.model;
 
 public class Status {
 
-	private String id;
-	private String status;
+	private String response;
+	private String error;
 
 	public Status() {
 		super();
+		
 	}
 
-	public Status(String id, String status) {
+	public Status(String response, String error) {
 		super();
-		this.id = id;
-		this.status = status;
+		this.response = response;
+		this.error = error;
 	}
 
-	public String getId() {
-		return id;
+	public String getResponse() {
+		return response;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setResponse(String response) {
+		this.response = response;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getError() {
+		return error;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setError(String error) {
+		this.error = error;
 	}
+	
+	
 
 }

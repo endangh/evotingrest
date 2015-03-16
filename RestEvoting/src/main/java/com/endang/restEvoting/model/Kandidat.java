@@ -1,7 +1,7 @@
 package com.endang.restEvoting.model;
 
 // Generated 07-Nov-2014 10:39:09 by Hibernate Tools 3.4.0.CR1
-public class Kandidat{
+public class Kandidat {
 
 	private Integer idKandidat;
 	private String namaKandidat;
@@ -10,14 +10,15 @@ public class Kandidat{
 	private String misiKandidat;
 	private String periodeKandidat;
 	private boolean statusKandidat;
+	private String response;
 
 	public Kandidat() {
-		
+
 	}
 
 	public Kandidat(Integer idKandidat, String namaKandidat,
 			String urlPhotoKandidat, String visiKandidat, String misiKandidat,
-			String periodeKandidat,boolean status) {
+			String periodeKandidat, boolean statusKandidat, String response) {
 		super();
 		this.idKandidat = idKandidat;
 		this.namaKandidat = namaKandidat;
@@ -25,7 +26,8 @@ public class Kandidat{
 		this.visiKandidat = visiKandidat;
 		this.misiKandidat = misiKandidat;
 		this.periodeKandidat = periodeKandidat;
-		this.statusKandidat = status;
+		this.statusKandidat = statusKandidat;
+		this.response = response;
 	}
 
 	public Integer getIdKandidat() {
@@ -36,7 +38,6 @@ public class Kandidat{
 		this.idKandidat = idKandidat;
 	}
 
-	
 	public String getNamaKandidat() {
 		return this.namaKandidat;
 	}
@@ -85,6 +86,12 @@ public class Kandidat{
 		this.statusKandidat = statusKandidat;
 	}
 
-	
+	public String getResponse() {
+		return response;
+	}
+
+	public void setResponse(String response) {
+		this.response = response;
+	}
 
 }

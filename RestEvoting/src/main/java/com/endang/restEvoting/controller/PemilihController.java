@@ -26,9 +26,20 @@ public class PemilihController {
 	public String find(HttpServletRequest servletRequest,
 			@PathVariable("id_pemilih") String id_pemilih) {
 		Pemilih p = pemilihService.getPemilih(id_pemilih);
-		
-			return gson.toJson(p);
-	
+		if (p == null) {
+			Status status = new Status("false", "Pemilih Tidak Ditemukan");
+			return gson.toJson(status);
+		}else
+		return gson.toJson(p);
+
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/pemilih/pass/{id_pemilih}",method = RequestMethod.POST)
+	public String findPass(HttpServletRequest servletRequest,@PathVariable("id_pemilih") String id_pemilih){
+		
+		return  null;
+	}
+	
+	
 }
-                                                                                                                                                                        

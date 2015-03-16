@@ -9,4 +9,5 @@ public interface SuaraService {
 	List<Suara> findAll();
 	boolean insertSuara(int idKandidat);
 	int getSuara(int idKandidat);
+	String getOptionRekapitulasi();
 }
