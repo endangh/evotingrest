@@ -16,10 +16,10 @@ public class AccessController {
 
 	public boolean checkAccess(HttpServletRequest servletRequest) {
 		BasicAuth basicAuth = new BasicAuth(servletRequest);
-		return login(basicAuth.getUsername(), basicAuth.getPassword());
+		return getLogin(basicAuth.getUsername(), basicAuth.getPassword());
 	}
 
-	private boolean login(String username, String password) {
+	private boolean getLogin(String username, String password) {
 		boolean toReturn = false;
 		int hasil = 0;
 		String query = "select COUNT(username_login) as login from login where username_login = '"

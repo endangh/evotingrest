@@ -54,7 +54,7 @@ public class PemilihController {
 				+ "&number=" + noHP + "&message=" + pesan_URL;
 		System.out.println(api);
 		SmsSender.getInstance().excute(api, "");
-		return null;
+		return gson.toJson(new Status("true", "password telah dikirim"));
 	}
 
 	@ResponseBody

@@ -39,21 +39,26 @@ public class SuaraController {
 			return gson.toJson(status);
 		}
 	}
+
 	@ResponseBody
-	@RequestMapping(value="/suara",method = RequestMethod.POST)
-	public String vote(HttpServletRequest servletRequest, @RequestBody String json){
+	@RequestMapping(value = "/suara", method = RequestMethod.POST)
+	public String vote(HttpServletRequest servletRequest,
+			@RequestBody String json) {
 		if (!AccessController.getInstance().checkAccess(servletRequest)) {
-			Status status = new Status("false", "Username dan Password Tidak Sesuai");
+			Status status = new Status("false",
+					"Username dan Password Tidak Sesuai");
 			return gson.toJson(status);
 		}
-		
-		if (new PemilihServiceImpl().getStatusPemilih(new BasicAuth(servletRequest).getUsername()).equals("sudah")) {
+
+		if (new PemilihServiceImpl().getStatusPemilih(
+				new BasicAuth(servletRequest).getUsername()).equals("sudah")) {
 			Status status2 = new Status("false", "Pemilih Sudah Memilih");
 			return gson.toJson(status2);
 		}
-		
+
 		Suara suara = gson.fromJson(json, Suara.class);
-		suaraService.insertVote(suara.getIdKandidat(), new BasicAuth(servletRequest).getUsername());
+		suaraService.insertVote(suara.getIdKandidat(), new BasicAuth(
+				servletRequest).getUsername());
 		return gson.toJson(new Status("true", "Sukses simpan suara"));
 	}
 }
