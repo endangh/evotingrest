@@ -7,7 +7,7 @@ import com.endang.restEvoting.model.Suara;
 public interface SuaraService {
 	
 	List<Suara> findAll();
-	boolean insertSuara(int idKandidat);
-	int getSuara(int idKandidat);
+	boolean insertVote(String idKandidat,String id_pemilih);
+	int getSuara(String idKandidat);
 	String getOptionRekapitulasi();
 }

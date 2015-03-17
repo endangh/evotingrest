@@ -2,7 +2,9 @@ package com.endang.restEvoting.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.endang.restEvoting.interfaces.SuaraService;
@@ -20,8 +22,9 @@ public class SuaraServiceImpl implements SuaraService {
 					.executeQuery(query);
 			while (rs.next()) {
 				list.add(new Suara(rs.getInt("id_suara"), rs
-						.getInt("id_kandidat"), rs.getString("nama_kandidat"),
-						rs.getInt("jumlah_suara"), "true"));
+						.getString("id_kandidat"), rs
+						.getString("nama_kandidat"), rs.getInt("jumlah_suara"),
+						"true"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -31,26 +34,59 @@ public class SuaraServiceImpl implements SuaraService {
 	}
 
 	@Override
-	public boolean insertSuara(int idKandidat) {
+	public boolean insertVote(String idKandidat, String id_pemilih) {
 		// TODO Auto-generated method stub
 		boolean toReturn = false;
 		int totalSuara = getSuara(idKandidat);
+
 		String query = "update suara SET jumlah_suara = '" + (totalSuara + 1)
 				+ "' where id_kandidat = '" + idKandidat + "'";
+
 		try {
 			toReturn = Koneksi.getInstance().getKoneksi().createStatement()
 					.execute(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("error pada insert " + e.getMessage());
 		}
+		updateStatusPemilih(id_pemilih);
+		updateLog(idKandidat);
 
 		return toReturn;
 
 	}
 
+	private void updateLog(String idKandidat) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd h:m:s");
+		String query_log = "insert into logvote (id_kandidat,waktu_pemilihan) values ('"
+				+ idKandidat + "','" + sdf.format(new Date())+ "')";
+		System.out.println(query_log);
+		try {
+			Koneksi.getInstance().getKoneksi().createStatement()
+					.execute(query_log);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("error update log : " + e.getMessage());
+		}
+	}
+
+	private void updateStatusPemilih(String id_pemilih) {
+		String query_update_pemilih = "update pemilih set status_vote_pemilih = 'sudah' where id_pemilih = '"
+				+ id_pemilih + "'";
+		try {
+			Koneksi.getInstance().getKoneksi().createStatement()
+					.execute(query_update_pemilih);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("error status pemilih : " + e.getMessage());
+		}
+	}
+
 	@Override
-	public int getSuara(int idKandidat) {
+	public int getSuara(String idKandidat) {
 		// TODO Auto-generated method stub
 		int total = 0;
 		String query = "select jumlah_suara from suara where id_kandidat = '"
