@@ -6,7 +6,7 @@ package com.endang.restEvoting.model;
 public class Suara {
 
 	private int idSuara;
-	private String idKandidat;
+	private int idKandidat;
 	private String namaKandidat;
 	private int jumlahSuara;
 	private String response;
@@ -14,7 +14,7 @@ public class Suara {
 	public Suara() {
 	}
 
-	public Suara(int idSuara, String idKandidat, String namaKandidat,
+	public Suara(int idSuara, int idKandidat, String namaKandidat,
 			int jumlahSuara, String response) {
 		super();
 		this.idSuara = idSuara;
@@ -32,11 +32,11 @@ public class Suara {
 		this.idSuara = idSuara;
 	}
 
-	public String getIdKandidat() {
+	public int getIdKandidat() {
 		return idKandidat;
 	}
 
-	public void setIdKandidat(String idKandidat) {
+	public void setIdKandidat(int idKandidat) {
 		this.idKandidat = idKandidat;
 	}
 

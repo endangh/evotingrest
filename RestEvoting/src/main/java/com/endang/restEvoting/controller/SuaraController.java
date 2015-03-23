@@ -57,6 +57,7 @@ public class SuaraController {
 		}
 
 		Suara suara = gson.fromJson(json, Suara.class);
+		System.out.println(suara.getNamaKandidat());
 		suaraService.insertVote(suara.getIdKandidat(), new BasicAuth(
 				servletRequest).getUsername());
 		return gson.toJson(new Status("true", "Sukses simpan suara"));

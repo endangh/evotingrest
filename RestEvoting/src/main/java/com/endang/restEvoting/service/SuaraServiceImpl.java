@@ -16,25 +16,27 @@ public class SuaraServiceImpl implements SuaraService {
 	public List<Suara> findAll() {
 		// TODO Auto-generated method stub
 		List<Suara> list = new ArrayList<Suara>();
-		String query = "select s.*,k.nama_kandidat from suara s inner join kandidat k on s.id_kadidat = k.id_kandidat";
+		String query = "select s.*,k.nama_kandidat from suara s inner join kandidat k on s.id_kandidat = k.id_kandidat";
+		
 		try {
 			ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement()
 					.executeQuery(query);
 			while (rs.next()) {
 				list.add(new Suara(rs.getInt("id_suara"), rs
-						.getString("id_kandidat"), rs
+						.getInt("id_kandidat"), rs
 						.getString("nama_kandidat"), rs.getInt("jumlah_suara"),
 						"true"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("error load suara "+e.getMessage());
 		}
 		return list;
 	}
 
 	@Override
-	public boolean insertVote(String idKandidat, String id_pemilih) {
+	public boolean insertVote(int idKandidat, String id_pemilih) {
 		// TODO Auto-generated method stub
 		boolean toReturn = false;
 		int totalSuara = getSuara(idKandidat);
@@ -57,7 +59,7 @@ public class SuaraServiceImpl implements SuaraService {
 
 	}
 
-	private void updateLog(String idKandidat) {
+	private void updateLog(int idKandidat) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd h:m:s");
 		String query_log = "insert into logvote (id_kandidat,waktu_pemilihan) values ('"
 				+ idKandidat + "','" + sdf.format(new Date())+ "')";
@@ -86,7 +88,7 @@ public class SuaraServiceImpl implements SuaraService {
 	}
 
 	@Override
-	public int getSuara(String idKandidat) {
+	public int getSuara(int idKandidat) {
 		// TODO Auto-generated method stub
 		int total = 0;
 		String query = "select jumlah_suara from suara where id_kandidat = '"
@@ -109,7 +111,7 @@ public class SuaraServiceImpl implements SuaraService {
 	public String getOptionRekapitulasi() {
 		// TODO Auto-generated method stub
 		String status = null;
-		String query = "Select value_option from option where id_option = 1";
+		String query = "Select value_option from options where id_option = 1";
 		try {
 			ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement()
 					.executeQuery(query);
