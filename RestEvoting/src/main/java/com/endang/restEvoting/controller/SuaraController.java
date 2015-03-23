@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.endang.restEvoting.helper.BasicAuth;
 import com.endang.restEvoting.interfaces.SuaraService;
-import com.endang.restEvoting.model.Kandidat;
-import com.endang.restEvoting.model.Pemilih;
 import com.endang.restEvoting.model.Status;
 import com.endang.restEvoting.model.Suara;
 import com.endang.restEvoting.service.PemilihServiceImpl;
