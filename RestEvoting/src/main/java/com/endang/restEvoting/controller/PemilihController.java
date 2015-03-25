@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.endang.restEvoting.helper.EmailSender;
 import com.endang.restEvoting.helper.SmsSender;
 import com.endang.restEvoting.interfaces.PemilihService;
 import com.endang.restEvoting.model.Pemilih;
@@ -46,14 +47,16 @@ public class PemilihController {
 		String apiKey = pemilihService.getOptionSmsApi();
 		String password_login = pemilihService.getPassword(id_pemilih);
 		String noHP = pemilihService.getNoHP(id_pemilih);
+		String email = pemilihService.getEmail(id_pemilih);
 		String pesan = "EVOTING HMTIF - User : " + id_pemilih + " Password : "
 				+ password_login;
 		String pesan_URL = URLEncoder.encode(pesan).replace("+", "%20");
 		String api = pemilihService.getOptionSmsLink()+"username="
 				+ username + "&password=" + password + "&key=" + apiKey
 				+ "&number=" + noHP + "&message=" + pesan_URL;
-		System.out.println(api);
+		
 		SmsSender.getInstance().excute(api, "");
+		EmailSender.getInstance().sendEmail(email, pesan);
 		return gson.toJson(new Status("true", "password telah dikirim"));
 	}
 
