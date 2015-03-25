@@ -41,15 +41,15 @@ public class PemilihController {
 	@RequestMapping(value = "/pemilih/pass/{id_pemilih}", method = RequestMethod.GET)
 	public String findPass(HttpServletRequest servletRequest,
 			@PathVariable("id_pemilih") String id_pemilih) {
-		String username = "endanghidayat99";
-		String password = "milan1899";
-		String apiKey = "3f0b25288b75bea0a736495c634475e2";
+		String username = pemilihService.getOptionSmsUsername();
+		String password = pemilihService.getOptionSmsPassword();
+		String apiKey = pemilihService.getOptionSmsApi();
 		String password_login = pemilihService.getPassword(id_pemilih);
 		String noHP = pemilihService.getNoHP(id_pemilih);
 		String pesan = "EVOTING HMTIF - User : " + id_pemilih + " Password : "
 				+ password_login;
 		String pesan_URL = URLEncoder.encode(pesan).replace("+", "%20");
-		String api = "http://162.211.84.203/sms/smsreguler.php?username="
+		String api = pemilihService.getOptionSmsLink()+"username="
 				+ username + "&password=" + password + "&key=" + apiKey
 				+ "&number=" + noHP + "&message=" + pesan_URL;
 		System.out.println(api);

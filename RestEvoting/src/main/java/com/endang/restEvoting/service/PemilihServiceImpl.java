@@ -88,4 +88,90 @@ public class PemilihServiceImpl implements PemilihService {
 		}
 		return status;
 	}
+
+	@Override
+	public String getEmail(String id) {
+		String email = "_";
+		String query = "select email_pemilih from pemilih where id_pemilih = '"
+				+ id + "'";
+		try {
+			ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement()
+					.executeQuery(query);
+			while (rs.next()) {
+				email = rs.getString("email_pemilih");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return email;
+	}
+
+	@Override
+	public String getOptionSmsUsername() {
+		String username = "_";
+		String query = "Select value_option from options where id_option = 7";
+		try {
+			ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement()
+					.executeQuery(query);
+			while (rs.next()) {
+				username = rs.getString("value_option");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return username;
+	}
+
+	@Override
+	public String getOptionSmsPassword() {
+		String password = "_";
+		String query = "Select value_option from options where id_option = 8";
+		try {
+			ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement()
+					.executeQuery(query);
+			while (rs.next()) {
+				password = rs.getString("value_option");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return password;
+	}
+
+	@Override
+	public String getOptionSmsApi() {
+		String apiKey = "_";
+		String query = "Select value_option from options where id_option = 9";
+		try {
+			ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement()
+					.executeQuery(query);
+			while (rs.next()) {
+				apiKey = rs.getString("value_option");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return apiKey;
+	}
+
+	@Override
+	public String getOptionSmsLink() {
+		String link = "_";
+		String query = "Select value_option from options where id_option = 10";
+		try {
+			ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement()
+					.executeQuery(query);
+			while (rs.next()) {
+				link = rs.getString("value_option");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return link;
+	}
 }

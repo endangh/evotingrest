@@ -8,4 +8,9 @@ public interface PemilihService {
 	String getPassword(String id);
 	String getNoHP(String id);
 	String getStatusPemilih(String id);
+	String getEmail(String id);
+	String getOptionSmsUsername();
+	String getOptionSmsPassword();
+	String getOptionSmsApi();
+	String getOptionSmsLink();
 }
