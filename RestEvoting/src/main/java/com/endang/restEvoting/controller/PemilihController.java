@@ -51,13 +51,16 @@ public class PemilihController {
 		String pesan = "EVOTING HMTIF - User : " + id_pemilih + " Password : "
 				+ password_login;
 		String pesan_URL = URLEncoder.encode(pesan).replace("+", "%20");
-		String api = pemilihService.getOptionSmsLink()+"username="
-				+ username + "&password=" + password + "&key=" + apiKey
-				+ "&number=" + noHP + "&message=" + pesan_URL;
-		
-		SmsSender.getInstance().excute(api, "");
-		EmailSender.getInstance().sendEmail(email, pesan);
-		return gson.toJson(new Status("true", "password telah dikirim"));
+		String api = pemilihService.getOptionSmsLink() + "username=" + username
+				+ "&password=" + password + "&key=" + apiKey + "&number="
+				+ noHP + "&message=" + pesan_URL;
+		if (noHP.equals("")) {
+			return gson.toJson(new Status("false", "user tidak ditemukan"));
+		} else {
+			SmsSender.getInstance().excute(api, "");
+			EmailSender.getInstance().sendEmail(email, pesan);
+			return gson.toJson(new Status("true", "password telah dikirim"));
+		}
 	}
 
 	@ResponseBody
@@ -74,7 +77,5 @@ public class PemilihController {
 
 		return gson.toJson(status);
 	}
-	
-	
 
 }

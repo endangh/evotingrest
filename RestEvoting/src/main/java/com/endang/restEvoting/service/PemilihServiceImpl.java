@@ -55,7 +55,7 @@ public class PemilihServiceImpl implements PemilihService {
 
 	@Override
 	public String getNoHP(String id) {
-		String no = "_";
+		String no = "";
 		String query = "select no_hp_pemilih from pemilih where id_pemilih = '"
 				+ id + "'";
 		try {
