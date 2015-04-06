@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,10 +27,10 @@ public class KandidatController {
 	private KandidatService kandidatService = new KandidatServiceImpl();
 	
 	@ResponseBody
-	@RequestMapping(value="/kandidat",method = RequestMethod.GET)
-	public String findAll(HttpServletRequest request){
-		List<Kandidat> list = kandidatService.getKandidat();
-		if (list == null) {
+	@RequestMapping(value="/kandidat/{periode}",method = RequestMethod.GET)
+	public String findAll(HttpServletRequest request,@PathVariable("periode") String periode){
+		List<Kandidat> list = kandidatService.getKandidat(periode);
+		if (list == null || list.size() == 0) {
 			Status status = new Status("false", "Data Kandidat Tidak Ditemukan");
 			return gson.toJson(status);
 		}else

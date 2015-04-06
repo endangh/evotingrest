@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,10 +27,13 @@ public class SuaraController {
 	private SuaraService suaraService = new SuaraServiceImpl();
 
 	@ResponseBody
-	@RequestMapping(value = "/suara", method = RequestMethod.GET)
-	public String findAll() {
+	@RequestMapping(value = "/suara/{periode}", method = RequestMethod.GET)
+	public String findAll(HttpServletRequest servletRequest, @PathVariable("periode") String periode) {
 		if (suaraService.getOptionRekapitulasi().equals("true")) {
-			List<Suara> list = suaraService.findAll();
+			List<Suara> list = suaraService.findAll(periode);
+			if (list.size()==0) {
+				return gson.toJson(new Status("false", "Data Tidak Ditemukan"));
+			}
 			return gson.toJson(list);
 		} else {
 			Status status = new Status("false",

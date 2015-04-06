@@ -6,6 +6,6 @@ import com.endang.evotingrest.model.Kandidat;
 
 public interface KandidatService {
 	
-	List<Kandidat> getKandidat();
+	List<Kandidat> getKandidat(String periode);
 
 }

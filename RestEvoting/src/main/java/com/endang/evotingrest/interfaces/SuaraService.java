@@ -6,7 +6,7 @@ import com.endang.evotingrest.model.Suara;
 
 public interface SuaraService {
 	
-	List<Suara> findAll();
+	List<Suara> findAll(String periode);
 	boolean insertVote(int idKandidat,String id_pemilih);
 	int getSuara(int idKandidat);
 	String getOptionRekapitulasi();

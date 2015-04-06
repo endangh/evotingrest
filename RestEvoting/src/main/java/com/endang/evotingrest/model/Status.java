@@ -3,17 +3,17 @@ package com.endang.evotingrest.model;
 public class Status {
 
 	private String response;
-	private String error;
+	private String message;
 
 	public Status() {
 		super();
 		
 	}
 
-	public Status(String response, String error) {
+	public Status(String response, String message) {
 		super();
 		this.response = response;
-		this.error = error;
+		this.message = message;
 	}
 
 	public String getResponse() {
@@ -24,14 +24,13 @@ public class Status {
 		this.response = response;
 	}
 
-	public String getError() {
-		return error;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setError(String error) {
-		this.error = error;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-	
-	
 
+	
 }

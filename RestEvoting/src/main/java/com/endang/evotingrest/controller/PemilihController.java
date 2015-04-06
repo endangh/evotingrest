@@ -69,10 +69,10 @@ public class PemilihController {
 		Status status = new Status();
 		if (AccessController.getInstance().checkAccess(servletRequest)) {
 			status.setResponse("true");
-			status.setError("Sukses Login");
+			status.setMessage("Sukses Login");
 		} else {
 			status.setResponse("false");
-			status.setError("Username dan Password Tidak Sesuai");
+			status.setMessage("Username dan Password Tidak Sesuai");
 		}
 
 		return gson.toJson(status);

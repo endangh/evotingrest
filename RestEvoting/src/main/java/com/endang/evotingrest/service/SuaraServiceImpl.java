@@ -13,10 +13,10 @@ import com.endang.evotingrest.model.Suara;
 public class SuaraServiceImpl implements SuaraService {
 
 	@Override
-	public List<Suara> findAll() {
+	public List<Suara> findAll(String periode) {
 		// TODO Auto-generated method stub
 		List<Suara> list = new ArrayList<Suara>();
-		String query = "select s.*,k.nama_kandidat from suara s inner join kandidat k on s.id_kandidat = k.id_kandidat";
+		String query = "select s.*,k.nama_kandidat from suara s inner join kandidat k on s.id_kandidat = k.id_kandidat inner join pemilihan p on p.id_pemilihan = k.id_pemilihan where p.periode = '"+periode+"'";
 		
 		try {
 			ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement()

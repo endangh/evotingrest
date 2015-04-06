@@ -13,9 +13,9 @@ import com.endang.evotingrest.model.Kandidat;
 
 public class KandidatServiceImpl implements KandidatService{
 	@Override
-	public List<Kandidat> getKandidat() {
+	public List<Kandidat> getKandidat(String periode) {
 		// TODO Auto-generated method stub
-			String query = "select k.*,p.periode from kandidat k inner join pemilihan p on k.id_pemilihan = p.id_pemilihan";
+			String query = "select k.*,p.periode from kandidat k inner join pemilihan p on k.id_pemilihan = p.id_pemilihan where p.periode ='"+periode+"'";
 			List<Kandidat> list = new ArrayList<Kandidat>();
 			try {
 				ResultSet rs = Koneksi.getInstance().getKoneksi().createStatement().executeQuery(query);
