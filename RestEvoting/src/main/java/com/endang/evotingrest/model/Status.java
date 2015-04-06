@@ -1,4 +1,4 @@
-package com.endang.restEvoting.model;
+package com.endang.evotingrest.model;
 
 public class Status {
 

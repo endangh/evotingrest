@@ -1,4 +1,4 @@
-package com.endang.restEvoting.helper;
+package com.endang.evotingrest.helper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import com.endang.restEvoting.service.Koneksi;
+import com.endang.evotingrest.service.Koneksi;
 
 public class EmailSender {
 	

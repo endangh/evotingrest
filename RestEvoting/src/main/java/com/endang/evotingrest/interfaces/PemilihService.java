@@ -1,6 +1,6 @@
-package com.endang.restEvoting.interfaces;
+package com.endang.evotingrest.interfaces;
 
-import com.endang.restEvoting.model.Pemilih;
+import com.endang.evotingrest.model.Pemilih;
 
 public interface PemilihService {
 	

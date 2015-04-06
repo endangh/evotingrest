@@ -1,4 +1,4 @@
-package com.endang.restEvoting.service;
+package com.endang.evotingrest.service;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;

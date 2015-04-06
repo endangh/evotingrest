@@ -1,12 +1,12 @@
-package com.endang.restEvoting.service;
+package com.endang.evotingrest.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.stereotype.Service;
 
-import com.endang.restEvoting.interfaces.PemilihService;
-import com.endang.restEvoting.model.Pemilih;
+import com.endang.evotingrest.interfaces.PemilihService;
+import com.endang.evotingrest.model.Pemilih;
 
 @Service
 public class PemilihServiceImpl implements PemilihService {

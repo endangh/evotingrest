@@ -1,12 +1,12 @@
-package com.endang.restEvoting.controller;
+package com.endang.evotingrest.controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.endang.restEvoting.helper.BasicAuth;
-import com.endang.restEvoting.service.Koneksi;
+import com.endang.evotingrest.helper.BasicAuth;
+import com.endang.evotingrest.service.Koneksi;
 
 public class AccessController {
 

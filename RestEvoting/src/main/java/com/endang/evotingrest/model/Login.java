@@ -1,4 +1,4 @@
-package com.endang.restEvoting.model;
+package com.endang.evotingrest.model;
 
 // default package
 // Generated 07-Nov-2014 10:39:09 by Hibernate Tools 3.4.0.CR1

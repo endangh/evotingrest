@@ -1,8 +1,8 @@
-package com.endang.restEvoting.interfaces;
+package com.endang.evotingrest.interfaces;
 
 import java.util.List;
 
-import com.endang.restEvoting.model.Suara;
+import com.endang.evotingrest.model.Suara;
 
 public interface SuaraService {
 	

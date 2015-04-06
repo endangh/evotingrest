@@ -1,4 +1,4 @@
-package com.endang.restEvoting.helper;
+package com.endang.evotingrest.helper;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

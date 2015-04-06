@@ -1,4 +1,4 @@
-package com.endang.restEvoting.helper;
+package com.endang.evotingrest.helper;
 
 import org.apache.commons.codec.binary.Base64;
 

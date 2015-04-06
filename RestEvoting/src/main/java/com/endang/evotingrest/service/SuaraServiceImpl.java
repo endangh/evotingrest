@@ -1,4 +1,4 @@
-package com.endang.restEvoting.service;
+package com.endang.evotingrest.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.endang.restEvoting.interfaces.SuaraService;
-import com.endang.restEvoting.model.Suara;
+import com.endang.evotingrest.interfaces.SuaraService;
+import com.endang.evotingrest.model.Suara;
 
 public class SuaraServiceImpl implements SuaraService {
 

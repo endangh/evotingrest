@@ -1,4 +1,4 @@
-package com.endang.restEvoting.controller;
+package com.endang.evotingrest.controller;
 
 import java.util.List;
 
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.endang.restEvoting.helper.BasicAuth;
-import com.endang.restEvoting.interfaces.KandidatService;
-import com.endang.restEvoting.model.Kandidat;
-import com.endang.restEvoting.model.Status;
-import com.endang.restEvoting.service.KandidatServiceImpl;
+import com.endang.evotingrest.helper.BasicAuth;
+import com.endang.evotingrest.interfaces.KandidatService;
+import com.endang.evotingrest.model.Kandidat;
+import com.endang.evotingrest.model.Status;
+import com.endang.evotingrest.service.KandidatServiceImpl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

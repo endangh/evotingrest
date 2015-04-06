@@ -1,4 +1,4 @@
-package com.endang.restEvoting.controller;
+package com.endang.evotingrest.controller;
 
 import java.net.URLEncoder;
 
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.endang.restEvoting.helper.EmailSender;
-import com.endang.restEvoting.helper.SmsSender;
-import com.endang.restEvoting.interfaces.PemilihService;
-import com.endang.restEvoting.model.Pemilih;
-import com.endang.restEvoting.model.Status;
-import com.endang.restEvoting.service.PemilihServiceImpl;
+import com.endang.evotingrest.helper.EmailSender;
+import com.endang.evotingrest.helper.SmsSender;
+import com.endang.evotingrest.interfaces.PemilihService;
+import com.endang.evotingrest.model.Pemilih;
+import com.endang.evotingrest.model.Status;
+import com.endang.evotingrest.service.PemilihServiceImpl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

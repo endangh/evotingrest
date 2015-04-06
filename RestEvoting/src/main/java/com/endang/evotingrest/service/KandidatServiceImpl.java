@@ -1,4 +1,4 @@
-package com.endang.restEvoting.service;
+package com.endang.evotingrest.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.endang.restEvoting.interfaces.KandidatService;
-import com.endang.restEvoting.model.Kandidat;
+import com.endang.evotingrest.interfaces.KandidatService;
+import com.endang.evotingrest.model.Kandidat;
 
 
 public class KandidatServiceImpl implements KandidatService{
